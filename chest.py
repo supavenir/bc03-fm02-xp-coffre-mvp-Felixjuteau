@@ -6,7 +6,7 @@ class Chest:
             raise ValueError("Size must be a positive integer")
         self.size = size
         self.tresore_list= []
-
+        self.total_value = 0
     def get_size(self):
         return self.size
 
@@ -15,6 +15,7 @@ class Chest:
 
     def remove(self,tresore: Tresore):
         self.tresore_list.remove(tresore)
+        self.total_value -=tresore.value
 
     def add(self, tresore: Tresore):
         if not isinstance(tresore, Tresore):
@@ -27,6 +28,7 @@ class Chest:
             raise Exception("Duplicated tresore")
 
         self.tresore_list.append(tresore)
+        self.total_value +=tresore.value
 
     def total_weight(self):
         weight = 0
@@ -41,3 +43,7 @@ class Chest:
                 return tresor
         
         return None
+    
+    def get_value(self):
+        return self.total_value
+    
