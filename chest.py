@@ -19,10 +19,10 @@ class Chest:
     def add(self, tresore: Tresore):
         if not isinstance(tresore, Tresore):
             raise ValueError("fo-tresor detecte")
-        
-        if len(self.tresore_list) >= self.size:
-            raise Exception("Chest is full")
-        
+
+        total_weight = self.total_weight()
+        if self.size < total_weight + tresore.getWeight():
+            raise Exception("objects trop lourds à ajouter")
         if tresore in self.tresore_list:
             raise Exception("Duplicated tresore")
 
