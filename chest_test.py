@@ -85,6 +85,21 @@ def test_search_tresore():
     assert chest.shearch_tresore("Linux") == tresore2
     assert chest.shearch_tresore("Miaou") == None
 
+def test_total_value():
+    chest = Chest(10)
+    tresore1 = Tresore("Arc", 1, 10)
+    tresore2 = Tresore("Linux", 5, 1000)
+    assert chest.get_value() == 0
+    chest.add(tresore1)
+    assert chest.get_value() == 10
+    chest.add(tresore2)
+    assert chest.get_value() == 1010
+    chest.remove(tresore1)
+    assert chest.get_value() == 1000
+    chest.remove(tresore2)
+    assert chest.get_value() == 0
+    
+
 def test_chest_add_lock():
     chest = Chest(10, True)
     tresore1 = Tresore("Arc", 1, 10)

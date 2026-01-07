@@ -7,7 +7,7 @@ class Chest:
         self.lock = lock
         self.size = size
         self.tresore_list= []
-
+        self.total_value = 0
     def get_size(self):
         return self.size
 
@@ -18,6 +18,7 @@ class Chest:
         if self.lock :
             raise Exception("coffre verouillé impossible de retirer des tresore")
         self.tresore_list.remove(tresore)
+        self.total_value -=tresore.value
 
     def add(self, tresore: Tresore):
         if self.lock :
@@ -33,6 +34,7 @@ class Chest:
         
 
         self.tresore_list.append(tresore)
+        self.total_value +=tresore.value
 
     def total_weight(self):
         weight = 0
@@ -45,3 +47,7 @@ class Chest:
             if tresor.name == name:
                 return tresor
         return None
+    
+    def get_value(self):
+        return self.total_value
+    
