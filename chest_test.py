@@ -25,11 +25,10 @@ def test_list_objects_in_chest():
     chest.add(obj2)
     assert chest.get_tresors_list() == [obj1, obj2]
 
-def test_add_object_to_full_chest():
+def test_add_object_weight_over_limit():
     chest = Chest(1)
-    chest.add(Tresore("diamond", 2, 500))
     with pytest.raises(Exception):
-        chest.add(Tresore("ruby", 1, 300))
+        chest.add(Tresore("ruby", 2, 300))
 
 def test_add_object():
     chest = Chest(15)
@@ -58,7 +57,7 @@ def test_add_wrong_tresor():
     fo_tresor= 2
     with pytest.raises(ValueError):
         chest.add(fo_tresor)
-    
+
 def test_avoid_duplicate_objects():
     chest = Chest(15)
     treasor = Tresore("nom",5,10)
