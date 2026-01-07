@@ -59,3 +59,9 @@ def test_add_wrong_tresor():
     with pytest.raises(ValueError):
         chest.add(fo_tresor)
     
+def test_avoid_duplicate_objects():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    chest.add(treasor)
+    with pytest.raises(Exception):
+        chest.add(treasor)
