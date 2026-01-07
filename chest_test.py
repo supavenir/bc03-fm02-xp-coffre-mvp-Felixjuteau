@@ -66,6 +66,15 @@ def test_avoid_duplicate_objects():
     with pytest.raises(Exception):
         chest.add(treasor)
 
+def test_total_weight():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    treasor2 = Tresore("nom2",3,5)
+    chest.add(treasor)
+    chest.add(treasor2)
+    chest.total_weight()
+    assert chest.total_weight() == 8
+
 def test_search_tresore():
     chest = Chest(10)
     tresore1 = Tresore("Arc", 1, 10)

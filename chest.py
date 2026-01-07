@@ -9,13 +9,13 @@ class Chest:
 
     def get_size(self):
         return self.size
-    
+
     def get_tresors_list(self):
         return self.tresore_list
 
     def remove(self,tresore: Tresore):
         self.tresore_list.remove(tresore)
-    
+
     def add(self, tresore: Tresore):
         if not isinstance(tresore, Tresore):
             raise ValueError("fo-tresor detecte")
@@ -27,6 +27,12 @@ class Chest:
             raise Exception("Duplicated tresore")
 
         self.tresore_list.append(tresore)
+
+    def total_weight(self):
+        weight = 0
+        for tresor in self.tresore_list:
+            weight += tresor.getWeight()
+        return weight
 
     def shearch_tresore(self, name):
         
