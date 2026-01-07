@@ -1,7 +1,7 @@
 import pytest
 
 from chest import Chest
-from Tresore import Tresore
+from tresore import Tresore
 
 
 def test_create_chest():

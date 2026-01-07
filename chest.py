@@ -1,4 +1,4 @@
-from Tresore import Tresore
+from tresore import Tresore
 class Chest:
 
     def __init__(self, size):
