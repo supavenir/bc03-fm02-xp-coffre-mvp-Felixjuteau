@@ -7,3 +7,6 @@ class Chest:
 
     def get_size(self):
         return self.size
+    
+    def get_tresors_list(self):
+        return self.tresors_list
