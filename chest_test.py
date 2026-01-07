@@ -3,6 +3,7 @@ import pytest
 from chest import Chest
 from Tresore import Tresore
 
+
 def test_create_chest():
     size = 10
     chest = Chest(size)
@@ -27,3 +28,9 @@ def test_add_object_to_full_chest():
     chest.add_object(Tresore("diamond", 2, 500))
     with pytest.raises(Exception):
         chest.add_object(Tresore("ruby", 1, 300))
+
+def test_add_object():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    chest.add(treasor)
+    assert treasor in chest.tresore_list
