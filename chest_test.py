@@ -34,3 +34,19 @@ def test_add_object():
     treasor = Tresore("nom",5,10)
     chest.add(treasor)
     assert treasor in chest.tresore_list
+
+def test_remove_object():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    treasor2 = Tresore("nom2",3,5)
+    chest.add(treasor)
+    chest.add(treasor2)
+    chest.remove(treasor)
+    assert treasor not in chest.tresore_list
+    assert treasor2 in chest.tresore_list
+
+def test_remove_nonexistent_object():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    with pytest.raises(ValueError):
+        chest.remove(treasor)

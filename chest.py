@@ -15,3 +15,6 @@ class Chest:
 
     def add(self,tresore: Tresore):
         self.tresore_list.append(tresore)
+
+    def remove(self,tresore: Tresore):
+        self.tresore_list.remove(tresore)
