@@ -58,6 +58,13 @@ def test_add_wrong_tresor():
     fo_tresor= 2
     with pytest.raises(ValueError):
         chest.add(fo_tresor)
+    
+def test_avoid_duplicate_objects():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    chest.add(treasor)
+    with pytest.raises(Exception):
+        chest.add(treasor)
 
 def test_total_weight():
     chest = Chest(15)

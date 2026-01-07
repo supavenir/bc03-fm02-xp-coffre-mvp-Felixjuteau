@@ -13,17 +13,20 @@ class Chest:
     def get_tresors_list(self):
         return self.tresore_list
 
-    def add(self,tresore: Tresore):
-        self.tresore_list.append(tresore)
-
     def remove(self,tresore: Tresore):
         self.tresore_list.remove(tresore)
 
     def add(self, tresore: Tresore):
-        if isinstance(tresore, Tresore):
-            self.tresore_list.append(tresore)
-        else:
+        if not isinstance(tresore, Tresore):
             raise ValueError("fo-tresor detecte")
+        
+        if len(self.tresore_list) >= self.size:
+            raise Exception("Chest is full")
+        
+        if tresore in self.tresore_list:
+            raise Exception("Duplicated tresore")
+
+        self.tresore_list.append(tresore)
 
     def total_weight(self):
         weight = 0
