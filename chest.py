@@ -9,7 +9,7 @@ class Chest:
 
     def get_size(self):
         return self.size
-    
+
     def get_tresors_list(self):
         return self.tresors_list
 
@@ -18,9 +18,15 @@ class Chest:
 
     def remove(self,tresore: Tresore):
         self.tresore_list.remove(tresore)
-    
+
     def add(self, tresore: Tresore):
         if isinstance(tresore, Tresore):
             self.tresore_list.append(tresore)
         else:
             raise ValueError("fo-tresor detecte")
+
+    def total_weight(self):
+        weight = 0
+        for tresor in self.tresore_list:
+            weight += tresor.getWeight()
+        return weight

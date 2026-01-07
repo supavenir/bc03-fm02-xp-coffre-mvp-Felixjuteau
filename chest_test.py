@@ -56,4 +56,12 @@ def test_add_wrong_tresor():
     fo_tresor= 2
     with pytest.raises(ValueError):
         chest.add(fo_tresor)
-    
+
+def test_total_weight():
+    chest = Chest(15)
+    treasor = Tresore("nom",5,10)
+    treasor2 = Tresore("nom2",3,5)
+    chest.add(treasor)
+    chest.add(treasor2)
+    chest.total_weight()
+    assert chest.total_weight() == 8
