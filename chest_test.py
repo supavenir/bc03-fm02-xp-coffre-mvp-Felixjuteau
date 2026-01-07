@@ -84,3 +84,26 @@ def test_search_tresore():
 
     assert chest.shearch_tresore("Linux") == tresore2
     assert chest.shearch_tresore("Miaou") == None
+
+def test_chest_add_lock():
+    chest = Chest(10, True)
+    tresore1 = Tresore("Arc", 1, 10)
+    with pytest.raises(Exception):
+        chest.add(tresore1)
+
+def test_chest_add_unlock():
+    chest = Chest(10, False)
+    tresore1 = Tresore("Arc", 1, 10)
+    chest.add(tresore1)
+
+def test_chest_remove_lock():
+    chest = Chest(10, True)
+    tresore1 = Tresore("Arc", 1, 10)
+    with pytest.raises(Exception):
+        chest.remove(tresore1)
+
+def test_chest_remove_unlock():
+    chest = Chest(10, False)
+    tresore1 = Tresore("Arc", 1, 10)
+    chest.add(tresore1)
+    chest.remove(tresore1)
