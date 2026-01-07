@@ -27,3 +27,11 @@ class Chest:
             raise Exception("Duplicated tresore")
 
         self.tresore_list.append(tresore)
+
+    def shearch_tresore(self, name):
+        
+        for tresor in self.tresore_list :
+            if tresor.name == name:
+                return tresor
+        
+        return None

@@ -65,3 +65,14 @@ def test_avoid_duplicate_objects():
     chest.add(treasor)
     with pytest.raises(Exception):
         chest.add(treasor)
+
+def test_search_tresore():
+    chest = Chest(10)
+    tresore1 = Tresore("Arc", 1, 10)
+    tresore2 = Tresore("Linux", 5, 1000)
+
+    chest.add(tresore1)
+    chest.add(tresore2)
+
+    assert chest.shearch_tresore("Linux") == tresore2
+    assert chest.shearch_tresore("Miaou") == None
