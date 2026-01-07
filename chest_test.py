@@ -1,7 +1,7 @@
 import pytest
 
 from chest import Chest
-from Tresore import Tresore
+from tresore import Tresore
 
 
 def test_create_chest():
@@ -52,3 +52,10 @@ def test_remove_nonexistent_object():
     treasor = Tresore("nom",5,10)
     with pytest.raises(ValueError):
         chest.remove(treasor)
+
+def test_add_wrong_tresor():
+    chest = Chest(15)
+    fo_tresor= 2
+    with pytest.raises(ValueError):
+        chest.add(fo_tresor)
+    

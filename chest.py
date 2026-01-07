@@ -1,4 +1,4 @@
-from Tresore import Tresore
+from tresore import Tresore
 class Chest:
 
     def __init__(self, size):
@@ -18,3 +18,9 @@ class Chest:
 
     def remove(self,tresore: Tresore):
         self.tresore_list.remove(tresore)
+    
+    def add(self, tresore: Tresore):
+        if isinstance(tresore, Tresore):
+            self.tresore_list.append(tresore)
+        else:
+            raise ValueError("fo-tresor detecte")
