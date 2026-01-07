@@ -22,3 +22,10 @@ def test_add_object():
     treasor = Tresore("nom",5,10)
     chest.add(treasor)
     assert treasor in chest.tresore_list
+
+def test_add_wrong_tresor():
+    chest = Chest(15)
+    fo_tresor= 2
+    with pytest.raises(ValueError):
+        chest.add(fo_tresor)
+    
