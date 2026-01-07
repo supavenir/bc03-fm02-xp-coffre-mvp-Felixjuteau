@@ -11,7 +11,7 @@ class Chest:
         return self.size
 
     def get_tresors_list(self):
-        return self.tresors_list
+        return self.tresore_list
 
     def add(self,tresore: Tresore):
         self.tresore_list.append(tresore)
