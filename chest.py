@@ -1,4 +1,4 @@
-from tresore import Tresore
+from Tresore import Tresore
 class Chest:
 
     def __init__(self, size):
@@ -9,6 +9,15 @@ class Chest:
 
     def get_size(self):
         return self.size
+    
+    def get_tresors_list(self):
+        return self.tresors_list
+
+    def add(self,tresore: Tresore):
+        self.tresore_list.append(tresore)
+
+    def remove(self,tresore: Tresore):
+        self.tresore_list.remove(tresore)
     
     def add(self, tresore: Tresore):
         if isinstance(tresore, Tresore):
